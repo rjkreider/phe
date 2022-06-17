@@ -1,6 +1,12 @@
 #!/bin/bash
 
 # Requires `w3m` (apt install w3m)
+# To setup as cron on my system with a web frontend:
+# 0 * * * * curl --request GET 'https://localhost/phe/' >/dev/null 2>&1
+# or through shell
+# 0 * * * * /bin/sh /path/to/check.sh >/dev/null 2>&1
+#
+# web frontend can simply be a PHP file:  <?php passthru('/path/to/check.sh'); ?>
 
 current=$(w3m -T text/html -dump https://www.phe.gov/emergency/news/healthactions/phe/Pages/default.aspx 2>/dev/null|grep "This page last reviewed:"|sed -e 's/.*: //g' 2>/dev/null)
 hash=$(cat .phehash 2>/dev/null)
