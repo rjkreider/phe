@@ -10,6 +10,6 @@ if [ "$current" = "$hash" ]; then
         echo "No change."
 else
         echo "Change detected.";
-        echo $hash >.phehash
+        echo $current >.phehash
         echo "Update available, see: https://www.phe.gov/emergency/news/healthactions/phe/Pages/default.aspx" | mail -s 'Public Health Emergency' -a From:Rich\<no-reply@example.com\> 5555555555@txt.att.net
 fi
