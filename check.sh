@@ -2,7 +2,7 @@
 
 # Requires `w3m` (apt install w3m)
 
-current=$(w3m -T text/html -dump https://www.phe.gov/emergency/news/healthactions/phe/Pages/default.aspx|grep "This page last reviewed:"|sed -e 's/.*: //g' 2>/dev/null)
+current=$(w3m -T text/html -dump https://www.phe.gov/emergency/news/healthactions/phe/Pages/default.aspx 2>/dev/null|grep "This page last reviewed:"|sed -e 's/.*: //g' 2>/dev/null)
 hash=$(cat .phehash 2>/dev/null)
 
 
